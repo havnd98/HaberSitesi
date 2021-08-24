@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Haber Sitesi</title>
+        <style>               
+            .Bimage{background-image:url("resources/images/pattern.jpg");}        
+        </style> 
+
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body styleClass=".Bimage">
+        
+            <h:form>
+                <nav class="navbar justify-content-center navbar-light " style="background-color: #999999;">
+
+                    <img src="/haberSitesi/resources/images/map.png" alt="" width="60" height="46" class="d-inline-block align-text-top"/>
+                    <h:commandLink class="navbar-brand mt-2" action="/index" style="color: #bb2d3b" ><h1 align="center"><p class="fw-bolder" >Haber Kanalı</p></h1 ></h:commandLink>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav text-center">
+
+                            <h:commandLink styleClass="nav-link active" action="/index" style="color: #ffffff;" value="Ana Sayfa"/>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color: #ffffff;">Haber Listesi</a>
+                                <ul class="dropdown-menu text-center" style="background-color: #cc0000;">
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Genel" value="Genel Haberler"/></li>
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Havadurumu" value="Hava Durumu" /></li>
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Spor" value="Spor Haberleri" /></li>
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Oyun" value="Oyun Haberleri" /></li>
+                                </ul>
+                            </li>
+
+                            <h:commandLink styleClass="nav-link active" action="#{girisbean.logout()}" style="color: #ffffff;" value="logout"/>
+
+                        </div>
+                    </div>
+
+                </nav>
+            </h:form>
+        
+
+        <div class="container text-center mt-3">
+            <h:form>
+                <div class="btn-group-vertical mb-3" role="toolbar" aria-label="Toolbar with button groups"/>
+                <div class="btn-group me-2" role="group" aria-label="First group">
+                    <h:commandButton class="btn btn-outline-warning" style="color: #009999;" action="/haberler/Genel" value="Genel Haberler"/>
+                    <h:commandButton class="btn btn-outline-warning" style="color: #009999;" action="/haberler/Havadurumu" value="Hava Durumu"/>
+                    <h:commandButton class="btn btn-outline-warning" style="color: #009999;" action="/haberler/Spor" value="Spor Haberleri"/>
+                    <h:commandButton class="btn btn-outline-warning" style="color: #009999;" action="/haberler/Oyun" value="Oyun Haberleri"/>
+                </div>
+            </h:form>
+        </div>
+
+        <div class="container text-center">
+
+            <h:form>
+                <h1>Dünya çapında 24 saat uluslararası haber ve enformasyon yayını</h1>
+                <div class="card text-center">
+                    <div class="card-header">
+                        
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Dünya çapında 24 saat uluslararası haber ve enformasyon yayını</h6>
+                        <p class="card-text">HABER World News son dakikada gelişen haberleri ulaştırmakta liderlik konumunda. Birçok ülkede bulunan muhabirlerimizle, diğer uluslararası yayıncıların ulaştığından daha fazla coğrafyadaki son dakika haberlerini ekranlarınıza getiriyoruz.</p>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        
+                    </div>
+                </div>
+            </h:form>
+
+        </div>
+
+    </h:body>
+</html>
+

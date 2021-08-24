@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>               
+            .Bimage{background-image:url("resources/images/pattern.jpg");}        
+        </style> 
+
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <h:outputScript library="js" name="bootstrap.js"/>
+    </h:head>
+    <h:body styleClass="Bimage">
+        
+            <h:form>
+                <nav class="navbar justify-content-center navbar-light " style="background-color: #999999;">
+
+                    <img src="/haberSitesi/resources/images/map.png" alt="" width="60" height="46" class="d-inline-block align-text-top"/>
+                    <h:commandLink class="navbar-brand mt-2" action="/index" style="color: #bb2d3b" ><h1 align="center"><p class="fw-bolder" >Haber Kanalı</p></h1 ></h:commandLink>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav text-center">
+
+                            <h:commandLink styleClass="nav-link active" action="/index" style="color: #ffffff;" value="Ana Sayfa"/>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color: #ffffff;">Haber Listesi</a>
+                                <ul class="dropdown-menu text-center" style="background-color: #cc0000;">
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Genel" value="Genel Haberler"/></li>
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Havadurumu" value="Hava Durumu" /></li>
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Spor" value="Spor Haberleri" /></li>
+                                    <li><h:commandLink class="dropdown-item" action="/haberler/Oyun" value="Oyun Haberleri" /></li>
+                                </ul>
+                            </li>
+
+                            <h:commandLink styleClass="nav-link active" action="#{girisbean.logout()}" style="color: #ffffff;" value="logout"/>
+
+                        </div>
+                    </div>
+
+                </nav>
+            </h:form>
+        
+
+        <br/><br/>
+        <div class="container" >
+            <h:form>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">Haber Turu</label><!-- comment -->
+                    <h:selectOneMenu styleClass="form-select" id="inputGroupSelect01" value="#{haberbean.entity.haber_turu}">
+                        <f:selectItems value="#{haberbean.haberOptions}"/>
+                    </h:selectOneMenu>
+                </div>
+
+                <br/>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Haber ismi</span>
+                    <h:inputText class="form-control" value="#{haberbean.entity.haber_ismi}" />
+                </div>
+
+                <br/>
+
+                <div class="input-group">
+                    <span class="input-group-text">Haber</span>
+                    <h:inputTextarea styleClass="form-control" value="#{haberbean.entity.haber}" />
+
+                </div>
+
+                <br/>
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="inputPersonalid" class="col-form-label">Personal id</label>
+                    </div>
+                    <div class="col-auto">
+                        <h:inputText id="inputPersonalid" class="form-control" value="#{haberbean.entity.personal_id}"/>
+                    </div>
+                </div>
+
+                <br/>
+                <div class="container" >
+                    <h:commandButton class="btn btn-success btn-sm" action="#{haberbean.creat()}" value="save" /> 
+                </div>
+
+
+
+                <br/><!-- comment -->
+
+
+                <br/><br/>
+
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
+
