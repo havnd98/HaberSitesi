@@ -49,9 +49,4 @@ public class genel implements haberListesi{
     public void setDb(DBConnection db) {
         this.db = db;
     }
-
-
-
-
-    
 }
